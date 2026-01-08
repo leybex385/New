@@ -7,7 +7,679 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
+<body<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rejuve Trade Center</title>
+
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon.png">
+
+<style>
+:root{
+  --max-width:1280px;
+  --text-width:760px;
+  --primary:#0a2540;
+  --dark:#0c1622;
+  --dark-soft:#111c2a;
+  --gray:#7a8699;
+  --light:#f4f6f9;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  line-height:1.75;
+  color:#111;
+  background:#fff;
+}
+
+/* GLOBAL */
+.container{
+  max-width:var(--max-width);
+  margin:auto;
+  padding:120px 20px;
+}
+.text-column{max-width:var(--text-width)}
+h1{font-size:56px;color:#fff;margin-bottom:22px}
+h2{font-size:34px;color:var(--primary);margin-bottom:18px}
+h3{
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:14px;
+}
+p{font-size:16px;color:#444;margin-bottom:18px}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  z-index:100;
+}
+nav ul{
+  list-style:none;
+  margin:0;
+  padding:18px 20px;
+  display:flex;
+  justify-content:center;
+  gap:42px;
+}
+nav a{
+  position:relative;
+  text-decoration:none;
+  color:#111;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+nav a::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  bottom:-8px;
+  width:0;
+  height:1px;
+  background:var(--primary);
+  transition:.35s ease;
+  transform:translateX(-50%);
+}
+nav a:hover::after{width:100%}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:92vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:var(--dark);
+}
+.hero video{
+  position:absolute;
+  top:50%;left:50%;
+  width:100%;height:100%;
+  object-fit:cover;
+  transform:translate(-50%,-50%);
+  z-index:1;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(12,22,34,.65),
+    rgba(12,22,34,.85)
+  );
+  z-index:2;
+}
+.hero-inner{
+  position:relative;
+  z-index:3;
+  max-width:var(--max-width);
+  margin:auto;
+  padding:0 20px;
+}
+.hero p{
+  color:#e5e7eb;
+  max-width:680px;
+  font-size:18px;
+}
+
+/* BLOCK */
+.block{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+.block img{
+  width:100%;
+  border-radius:22px;
+}
+
+/* DARK SECTION */
+.section-dark{
+  background:var(--dark-soft);
+  color:#e5e7eb;
+}
+.section-dark h2{color:#fff}
+.section-dark p{color:#cbd5e1}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:36px;
+}
+.product{
+  background:var(--light);
+  border-radius:22px;
+  overflow:hidden;
+}
+.product img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+.product .info{padding:26px}
+.product .tag{
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#7a8699;
+  margin-bottom:10px;
+}
+.product h4{
+  font-size:17px;
+  color:var(--primary);
+  margin-bottom:8px;
+}
+
+/* COLLABORATIONS */
+.collaboration-item{
+  display:grid;
+  grid-template-columns:420px 1fr;
+  gap:70px;
+  align-items:flex-start;
+  margin-top:110px;
+}
+.collaboration-item img{
+  width:100%;
+  max-width:420px;
+}
+.collaboration-item h4{
+  font-size:22px;
+  color:var(--primary);
+  margin-bottom:14px;
+}
+.collaboration-item p{
+  font-size:16px;
+  color:#444;
+}
+
+/* COMPANY OVERVIEW LOGO */
+.overview-block{
+  display:grid;
+  grid-template-columns:1fr 460px;
+  gap:90px;
+  align-items:center;
+}
+.overview-logo{
+  display:flex;
+  justify-content:flex-end;
+}
+.overview-logo img{
+  width:100%;
+  max-width:420px;
+}
+
+/* CONTACT FORM (新增) */
+.contact-form{
+  max-width:600px;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:14px 16px;
+  margin-bottom:18px;
+  border-radius:10px;
+  border:1px solid #d1d5db;
+  font-size:15px;
+  font-family:inherit;
+}
+.contact-form textarea{
+  resize:vertical;
+  min-height:140px;
+}
+.contact-form button{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:14px 28px;
+  font-size:13px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-radius:999px;
+  cursor:pointer;
+}
+.contact-form button:hover{
+  opacity:.9;
+}
+
+/* FOOTER */
+footer{
+  background:#0c1622;
+  padding:100px 20px;
+}
+.footer-inner{
+  max-width:720px;
+  margin:auto;
+}
+.footer-card{
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;
+  padding:30px;
+  background:rgba(255,255,255,.02);
+}
+.footer-card h4{
+  margin:0 0 18px;
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#9fb3c8;
+}
+.footer-map iframe{
+  width:100%;
+  height:210px;
+  border:0;
+  border-radius:16px;
+  margin-bottom:20px;
+}
+.footer-contact{
+  font-size:14px;
+  line-height:1.65;
+  color:#cbd5e1;
+}
+.footer-contact .company{
+  font-weight:600;
+  color:#fff;
+  margin-bottom:6px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  h1{font-size:38px}
+  h2{font-size:28px}
+  .container{padding:80px 16px}
+  .block,
+  .collaboration-item,
+  .overview-block{
+    grid-template-columns:1fr;
+  }
+  .overview-logo{
+    justify-content:center;
+    margin-top:30px;
+  }
+}
+</style>
+</head>
+
 <body>
+
+<nav>
+<ul>
+<li><a href="#hero">Home</a></li>
+<li><a href="#founder">Founder</a></li>
+<li><a href="#collaborations">Collaborations</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#clinical">Clinical</a></li>
+<li><a href="#compliance">Compliance</a></li>
+<li><a href="#logistics">Logistics</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+<video autoplay="" muted="" loop="" playsinline="" preload="auto">
+  <source src="hero-video.mp4" type="video/mp4">
+</video>
+<div class="hero-inner">
+<h1>Rejuve Trade Center</h1>
+<p>
+A U.S.-based medical aesthetics and clinical technology organization focused on
+long-term institutional cooperation, regulatory alignment, and structured
+cross-border execution rather than short-term distribution or promotional activity.
+</p>
+</div>
+</section>
+
+<!-- COMPANY OVERVIEW -->
+<section class="container">
+<div class="overview-block">
+<div class="text-column">
+<h3>Company Overview</h3>
+<h2>Structured Medical Trade With Long-Term Orientation</h2>
+<p>
+Rejuve Trade Center operates across medical aesthetics, clinical technology, and
+international medical trade. The organization focuses on structured product
+classification, regulatory pathway alignment, and long-term operational execution
+rather than transactional distribution models.
+</p>
+<p>
+Our work emphasizes institutional compatibility, lifecycle responsibility, and
+sustainable deployment frameworks, supporting professional clinics, hospitals,
+and medical groups operating in regulated environments.
+</p>
+</div>
+<div class="overview-logo">
+<img src="images/logo-symbol.png" alt="Rejuve Trade Center Logo">
+</div>
+</div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder" class="container">
+<div class="block">
+<img src="images/founder-portrait.jpg">
+<div class="text-column">
+<h3>Founder</h3>
+<h2>Professional Foundation &amp; Early Career</h2>
+<p>
+Lee Beina, Founder of Rejuve Trade Center, earned a Bachelor’s degree in Economics
+from the University of California, Berkeley in 2009. During her academic studies,
+she developed a strong foundation in economic analysis, critical thinking, and
+structured problem-solving, supported by active participation in academic and
+social initiatives that strengthened her communication skills and cross-cultural
+awareness.
+</p>
+<p>
+Following graduation, Lee Beina gained early professional experience through an
+internship at Citibank, where she was exposed to the core operational mechanisms
+of the international financial industry. Her responsibilities included assisting
+with market analysis, financial data organization, reporting workflows, and
+supporting project-level planning and execution.
+</p>
+</div>
+</div>
+
+<div class="block" style="margin-top:90px">
+<div class="text-column">
+<h2>Industrial Experience &amp; Operational Perspective</h2>
+<p>
+In the early 2010s, Lee Beina joined Shanghai Huayi Group, participating in large-scale
+industrial operations and cross-functional coordination within complex
+organizational structures. Working within a state-level industrial group provided
+first-hand exposure to long-term planning, institutional collaboration, and
+high-responsibility operational environments.
+</p>
+<p>
+Today, this background directly informs Rejuve Trade Center’s operational philosophy:
+prioritizing structured cooperation, regulatory alignment, and long-term partnerships
+over short-term transactional activity, particularly within medical aesthetics,
+clinical technology, and cross-border trade environments.
+</p>
+</div>
+<img src="images/founder-portrait-2.jpg">
+</div>
+</section>
+
+<!-- COLLABORATIONS -->
+<section id="collaborations" class="container">
+<div class="text-column">
+<h3>Selected Clinical Collaborations</h3>
+<h2>International Professional Engagements</h2>
+<p>
+Rejuve Trade Center engages in long-term clinical and professional exchange with
+international medical institutions. These collaborations emphasize shared clinical
+standards, structured medical practice, and sustainable professional cooperation.
+</p>
+</div>
+
+<div class="collaboration-item">
+<img src="logo-clinic-1.png">
+<div>
+<h4>ID Plastic Surgery Hospital · South Korea</h4>
+<p>
+ID Plastic Surgery Hospital is one of Asia’s most recognized large-scale plastic
+surgery hospitals, known for its multidisciplinary clinical teams, structured
+surgical workflows, and high-volume institutional medical operations.
+</p>
+</div>
+</div>
+
+<div class="collaboration-item">
+<img src="logo-clinic-2.png">
+<div>
+<h4>Obagi Skin Health Institute · United States</h4>
+<p>
+Founded by Dr. Zein Obagi, the Obagi Skin Health Institute represents a globally
+influential authority in dermatological science and skin health.
+</p>
+</div>
+</div>
+
+<div class="collaboration-item">
+<img src="logo-clinic-3.png">
+<div>
+<h4>The Private Clinic · United Kingdom</h4>
+<p>
+The Private Clinic is a leading private medical and aesthetic clinic group in
+the United Kingdom, operating under regulated clinical standards.
+</p>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="container">
+<div class="text-column">
+<h3>Product Portfolio</h3>
+<h2>Classified Medical &amp; Aesthetic Systems</h2>
+<p>
+Each product category is evaluated based on clinical application context,
+regulatory requirements, and operational compatibility prior to institutional
+deployment.
+</p>
+</div>
+
+<div class="products">
+<div class="product">
+<img src="thermage.jpg">
+<div class="info">
+<div class="tag">Aesthetic System</div>
+<h4>Radiofrequency Skin Tightening</h4>
+<p>
+Non-invasive RF platforms designed for professional skin tightening procedures,
+supporting controlled thermal delivery and consistent clinical outcomes.
+</p>
+</div>
+</div>
+
+<div class="product">
+<img src="microneedling.jpg">
+<div class="info">
+<div class="tag">Aesthetic System</div>
+<h4>Microneedling Systems</h4>
+<p>
+Precision microneedling devices supporting controlled collagen stimulation
+protocols across professional aesthetic treatment environments.
+</p>
+</div>
+</div>
+
+<div class="product">
+<img src="laser.jpg">
+<div class="info">
+<div class="tag">Aesthetic / Clinical</div>
+<h4>Laser Devices</h4>
+<p>
+Advanced laser platforms designed for dermatological and aesthetic treatment
+applications requiring regulated clinical operation.
+</p>
+</div>
+</div>
+
+<div class="product">
+<img src="body-contouring.jpg">
+<div class="info">
+<div class="tag">Aesthetic System</div>
+<h4>Body Contouring Systems</h4>
+<p>
+Non-surgical body contouring technologies supporting fat reduction and body
+shaping workflows within professional clinics.
+</p>
+</div>
+</div>
+
+<div class="product">
+<img src="skin-rejuvenation.jpg">
+<div class="info">
+<div class="tag">Aesthetic System</div>
+<h4>Skin Rejuvenation Devices</h4>
+<p>
+Devices designed to improve skin texture, tone, and visible aging indicators
+through regulated aesthetic protocols.
+</p>
+</div>
+</div>
+
+<div class="product">
+<img src="dental.jpg">
+<div class="info">
+<div class="tag">Clinical Equipment</div>
+<h4>Dental Aesthetic Equipment</h4>
+<p>
+Professional-grade systems supporting cosmetic dental procedures within
+clinical and regulated treatment environments.
+</p>
+</div>
+</div>
+
+<div class="product">
+<img src="diagnostic.jpg">
+<div class="info">
+<div class="tag">Post-Treatment Support</div>
+<h4>Post-Treatment Care Devices</h4>
+<p>
+Supportive medical equipment designed for patient recovery and post-procedure
+care environments.
+</p>
+</div>
+</div>
+
+<div class="product">
+<img src="respiratory.jpg">
+<div class="info">
+<div class="tag">Clinical Support</div>
+<h4>Clinical Support Devices</h4>
+<p>
+Auxiliary systems supporting respiratory care and clinical treatment
+infrastructure within professional medical settings.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CLINICAL -->
+<section id="clinical" class="container section-dark">
+<div class="block">
+<img src="clinical-review.jpg">
+<div class="text-column">
+<h3>Clinical Review</h3>
+<h2>Evaluation Before Deployment</h2>
+<p>
+All systems undergo structured clinical review and technical validation prior to
+deployment, emphasizing safety, reproducibility, and real-world clinical
+compatibility.
+</p>
+<p>
+This process ensures alignment with professional practice standards and applicable
+regulatory expectations across treatment environments.
+</p>
+</div>
+</div>
+</section>
+
+<!-- COMPLIANCE -->
+<section id="compliance" class="container section-dark">
+<div class="block">
+<div class="text-column">
+<h3>Compliance</h3>
+<h2>Regulatory Alignment &amp; Responsibility</h2>
+<p>
+All products distributed by Rejuve Trade Center comply with FDA, CE, and applicable
+international medical regulatory standards.
+</p>
+<p>
+Compliance is treated as a foundational responsibility informing product selection,
+deployment pathways, and long-term institutional cooperation.
+</p>
+</div>
+<img src="compliance.jpg">
+</div>
+</section>
+
+<!-- LOGISTICS -->
+<section id="logistics" class="container">
+<div class="block">
+<img src="logistics.jpg">
+<div class="text-column">
+<h3>Global Logistics</h3>
+<h2>Cross-Border Medical Trade &amp; Fulfillment</h2>
+<p>
+Rejuve Trade Center supports international medical trade through structured logistics
+coordination, documentation alignment, and region-specific fulfillment strategies.
+</p>
+<p>
+Our logistics framework emphasizes compliance, traceability, and long-term
+operational reliability across North America, Asia, and select global markets.
+</p>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container">
+<div class="text-column">
+<h3>Contact</h3>
+<h2>Professional Inquiry &amp; Cooperation</h2>
+<p>
+If you are a clinic, medical institution, distributor, or professional partner
+interested in structured cooperation, regulatory-aligned products, or institutional
+medical trade, please leave your contact information below.
+</p>
+<p>
+Our team will review your inquiry and respond accordingly.
+</p>
+
+<form class="contact-form" action="https://formspree.io/f/https://formspree.io/f/xkogdagl" method="POST">
+<input type="text" name="name" placeholder="Full Name" required="" fdprocessedid="vadci">
+<input type="email" name="email" placeholder="Email Address" required="" fdprocessedid="dwg">
+<input type="text" name="phone" placeholder="Phone / WhatsApp (optional)" fdprocessedid="aehz0n">
+<textarea name="message" placeholder="Your inquiry or message" required=""></textarea>
+<button type="submit" fdprocessedid="aqxr">Submit Inquiry</button>
+</form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-card">
+<h4>Contact &amp; Location</h4>
+<div class="footer-map">
+<iframe src="https://www.google.com/maps?q=1910%20Pacific%20Ave%2C%20Suite%2017100%2C%20Dallas%2C%20TX%2075201&amp;output=embed" loading="lazy">
+</iframe>
+</div>
+<div class="footer-contact">
+<p class="company">Rejuve Trade Center</p>
+<p>
+1910 Pacific Ave, Suite 17100<br>
+Dallas, TX 75201, United States
+</p>
+<p>
+Email: mialee5201314@gmail.com<br>
+Phone: +1 254-214-9136
+</p>
+</div>
+</div>
+</div>
+</footer>
+
+
+
+
+
+
+
+
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
 
    <nav class="navbar">
     <div class="nav-links">
@@ -61,4 +733,5 @@
 
 </body>
 </html>
+
 
