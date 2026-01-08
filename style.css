@@ -93,3 +93,21 @@ body {
     color: #666;
     letter-spacing: 2px;
 }
+/* This makes the jump smooth when you click a link */
+html {
+    scroll-behavior: smooth;
+}
+
+/* This adds space so the fixed navbar doesn't cover your titles */
+.content-section {
+    padding: 100px 10% 60px 10%; /* Top padding accounts for navbar height */
+    min-height: 400px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #333;
+}
